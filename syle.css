@@ -9,8 +9,8 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 900px; /* Légèrement agrandi pour que tout le tableau tienne sur la page */
+    width: 95%;
+    max-width: 1000px; /* Agrandir légèrement la taille de la page */
     margin: 20px auto;
     background: #fff;
     padding: 20px;
@@ -87,6 +87,7 @@ form .btn:hover {
 .table-container table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed; /* Toutes les colonnes ont la même largeur */
 }
 
 .table-container th,
@@ -94,21 +95,15 @@ form .btn:hover {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    vertical-align: top; /* Assure un alignement correct pour le contenu multi-lignes */
+    word-wrap: break-word; /* Retour à la ligne automatique pour les colonnes personnalisées */
+    white-space: pre-wrap;
 }
 
-/* Style pour les colonnes personnalisées */
-.table-container th input {
-    white-space: normal; /* Permet le retour à la ligne */
-    word-break: break-word; /* Coupe les mots si nécessaire */
-    text-align: center;
-    width: 100%; /* Assure que le champ ne dépasse pas la largeur de la colonne */
-    border: none; /* Retire la bordure des champs pour un aspect plus propre */
-    background-color: transparent; /* Rendu plus harmonieux */
-}
-
-/.table-container th input:focus {
-    outline: 1px solid #1e90ff; /* Indique qu'un champ est en cours d'édition */
+.table-container th {
+    background-color: #1e90ff;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 /* Résultats */
@@ -127,4 +122,21 @@ form .btn:hover {
     padding: 10px;
     border-radius: 4px;
     margin: 0 0 20px 0;
+}
+
+/* Résumé des ressources */
+.result table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.result td:first-child {
+    font-weight: bold;
+    background-color: #f9f9f9;
 }
