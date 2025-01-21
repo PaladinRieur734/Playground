@@ -9,8 +9,8 @@ body {
 }
 
 .container {
-    width: 95%; /* Augmentation pour que le tableau tienne */
-    max-width: 1200px; /* Largeur maximale augmentée */
+    width: 90%;
+    max-width: 900px; /* Légèrement agrandi pour que tout le tableau tienne sur la page */
     margin: 20px auto;
     background: #fff;
     padding: 20px;
@@ -18,10 +18,75 @@ body {
     border-radius: 8px;
 }
 
+/* En-tête */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #1e90ff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Formulaire */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="date"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #1e90ff;
+    outline: none;
+}
+
+/* Bouton */
+form .btn {
+    display: block;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+form .btn:hover {
+    background-color: #005bb5;
+}
+
+/* Tableau des ressources */
+.table-container {
+    margin-bottom: 20px;
+}
+
 .table-container table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* Assure que toutes les colonnes aient la même largeur */
 }
 
 .table-container th,
@@ -29,5 +94,37 @@ body {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    word-wrap: break-word; /* Permet le retour à la ligne pour les colonnes */
+    vertical-align: top; /* Assure un alignement correct pour le contenu multi-lignes */
+}
+
+/* Style pour les colonnes personnalisées */
+.table-container th input {
+    white-space: normal; /* Permet le retour à la ligne */
+    word-break: break-word; /* Coupe les mots si nécessaire */
+    text-align: center;
+    width: 100%; /* Assure que le champ ne dépasse pas la largeur de la colonne */
+    border: none; /* Retire la bordure des champs pour un aspect plus propre */
+    background-color: transparent; /* Rendu plus harmonieux */
+}
+
+/.table-container th input:focus {
+    outline: 1px solid #1e90ff; /* Indique qu'un champ est en cours d'édition */
+}
+
+/* Résultats */
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1faff;
+    border: 1px solid #1e90ff;
+    border-radius: 8px;
+}
+
+.result h2 {
+    text-align: center;
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 0 0 20px 0;
 }
