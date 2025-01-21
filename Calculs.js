@@ -38,9 +38,9 @@ function obtenirAbattement(dateEffet, statut, salaires) {
     const abattementMax = abattements[anneeAbattement]?.[statut] || 0;
     return Math.min(salaires, abattementMax);
 }
-
 // Colonnes personnalisées (2 colonnes seulement)
 let customColumns = ["Colonne personnalisée 1", "Colonne personnalisée 2"];
+
 // Fonction pour générer le tableau des ressources
 function genererTableauRessources() {
     const dateEffet = new Date(document.getElementById("dateEffet").value);
@@ -272,7 +272,6 @@ function afficherResultats(
         result.innerHTML += `<p>Le montant trimestriel de l’allocation supplémentaire à servir était donc de ${montantASI.toFixed(2)} € (${plafondTrimestriel.toFixed(2)} € [plafond] – ${ressourcesApresAbattement.toFixed(2)} € [ressources]). Seuls des arrérages d’un montant mensuel de ${montantMensuelASI.toFixed(2)} € étaient dus à compter du ${dateEffet.toLocaleDateString("fr-FR")}.</p>`;
     }
 }
-
 // Génération des détails mois par mois
 function generateMonthlyDetails(details, role) {
     let html = `<h4>Détails des ressources pour ${role}</h4>`;
