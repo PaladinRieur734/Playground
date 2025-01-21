@@ -38,9 +38,9 @@ function obtenirAbattement(dateEffet, statut, salaires) {
     const abattementMax = abattements[anneeAbattement]?.[statut] || 0;
     return Math.min(salaires, abattementMax);
 }
+
 // Colonnes personnalisées (2 colonnes seulement)
 let customColumns = ["Colonne personnalisée 1", "Colonne personnalisée 2"];
-
 // Fonction pour générer le tableau des ressources
 function genererTableauRessources() {
     const dateEffet = new Date(document.getElementById("dateEffet").value);
@@ -79,7 +79,7 @@ function createRessourceTable(role, dateEffet) {
         "Salaires",
         "Indemnités journalières",
         "Chômage",
-        ...customColumns
+        ...customColumns,
     ].forEach((col, index) => {
         const th = document.createElement("th");
         if (index >= 5) {
@@ -287,6 +287,7 @@ function generateMonthlyDetails(details, role) {
                 ${
                     Object.keys(detail.customColumns).length > 0
                         ? Object.entries(detail.customColumns)
+                              .filter(([_, val]) => val > 0)
                               .map(([col, val]) => `<li>${col} : ${val.toFixed(2)} €</li>`)
                               .join("")
                         : ""
