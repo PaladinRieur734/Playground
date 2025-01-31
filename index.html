@@ -10,10 +10,10 @@
     <h1>Calcul de l'ASI</h1>
 
     <label for="dateEffet">Date d'effet :</label>
-    <input type="date" id="dateEffet">
+    <input type="date" id="dateEffet" oninput="genererTableauRessources()">
 
     <label for="statut">Statut :</label>
-    <select id="statut">
+    <select id="statut" onchange="genererTableauRessources()">
         <option value="seul">Seul</option>
         <option value="couple">Couple</option>
     </select>
@@ -25,7 +25,7 @@
 
     <button onclick="calculerASI()">Calculer</button>
 
-    <div id="resultats"></div>
+    <div id="result"></div>
 
     <script src="script.js"></script>
 </body>
