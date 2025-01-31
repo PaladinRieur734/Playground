@@ -3,30 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcul ASI</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Calculette des droits ASI</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Calcul de l'ASI</h1>
+    <div class="container">
+        <header>
+            <h1>Calculette des droits ASI</h1>
+            <p>Saisissez les informations pour générer le tableau des ressources et calculer les droits.</p>
+        </header>
 
-    <label for="dateEffet">Date d'effet :</label>
-    <input type="date" id="dateEffet" oninput="genererTableauRessources()">
+        <form id="asiForm">
+            <!-- Section Statut -->
+            <section class="statut-section">
+                <label for="statut">Statut :</label>
+                <select id="statut" onchange="genererTableauRessources()">
+                    <option value="" disabled selected>Choisissez le statut</option>
+                    <option value="seul">Personne seule</option>
+                    <option value="couple">Couple</option>
+                </select>
+            </section>
 
-    <label for="statut">Statut :</label>
-    <select id="statut" onchange="genererTableauRessources()">
-        <option value="seul">Seul</option>
-        <option value="couple">Couple</option>
-    </select>
+            <!-- Section Date d'effet -->
+            <section class="date-section">
+                <label for="dateEffet">Date d'effet :</label>
+                <input type="date" id="dateEffet" onchange="genererTableauRessources()">
+            </section>
 
-    <div id="ressourcesContainer"></div>
+            <!-- Section Tableau des ressources -->
+            <section class="ressources-section">
+                <h2>Tableau des ressources trimestrielles</h2>
+                <div id="ressourcesContainer">
+                    <p class="info">Le tableau des ressources apparaîtra ici après sélection du statut et de la date d'effet.</p>
+                </div>
+            </section>
 
-    <label for="bimN1">Valeur des BIM au 31 décembre N-1 :</label>
-    <input type="number" id="bimN1" step="0.01">
+            <!-- Section BIM -->
+            <section class="bim-section">
+                <h2>Montant des BIM au 31 décembre N-1</h2>
+                <label for="bimN1">BIM au 31 décembre de l'année N-1 :</label>
+                <input type="number" id="bimN1" placeholder="Montant en €" min="0">
+            </section>
 
-    <button onclick="calculerASI()">Calculer</button>
+            <!-- Bouton Calcul -->
+            <button type="button" class="btn" onclick="calculerASI()">Calculer les droits</button>
+        </form>
 
-    <div id="result"></div>
-
-    <script src="script.js"></script>
+        <!-- Résultats -->
+        <div id="result" class="result"></div>
+    </div>
+    <script src="calculAsi.js"></script>
 </body>
 </html>
